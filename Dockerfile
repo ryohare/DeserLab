@@ -4,4 +4,8 @@ WORKDIR /app
 
 COPY . /app
 
-ENTRYPOINT ['java', '-jar', 'DeserLab.jar', '-server', '4444']
+RUN adduser -D deser
+
+USER deser
+
+ENTRYPOINT ["java", "-jar", "DeserLab.jar", "-server", "0.0.0.0", "4444"]
